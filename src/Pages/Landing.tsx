@@ -7,10 +7,10 @@ import { Link } from "react-router-dom";
 import $ from "jquery";
 import "jquery.ripples";
 import { ChevronDown } from "lucide-react";
-import indiaFlag from "../assets/Flag_of_India.svg";
-import uaeFlag from "../assets/istockphoto-482478655-612x612.jpg";
-import nzFlag from "../assets/Flag_of_New_Zealand.svg.png";
-import ausFlag from "../assets/360_F_95875376_J2JaVltiGAINhhRDWInNcncgmLbPSvBc.jpg";
+// import indiaFlag from "../assets/Flag_of_India.svg";
+// import uaeFlag from "../assets/istockphoto-482478655-612x612.jpg";
+// import nzFlag from "../assets/Flag_of_New_Zealand.svg.png";
+// import ausFlag from "../assets/360_F_95875376_J2JaVltiGAINhhRDWInNcncgmLbPSvBc.jpg";
 
 function Landing() {
   const [showContent, setShowContent] = useState(false);
@@ -37,21 +37,17 @@ function Landing() {
       className="flex w-full h-screen bg-cover bg-center full-landing-image"
       style={{ backgroundImage: `url(${homepage})` }}
     >
-      <div className="absolute bottom-28 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-2xl md:text-2xl font-semibold tracking-widest z-10 text-center flex flex-wrap justify-center items-center gap-6">
-        <div className="flex items-center space-x-2">
-          <img src={indiaFlag} alt="India" className="w-6 h-6" />
+      <div className="absolute bottom-28 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-[17px] font-thin tracking-widest z-10 text-center flex flex-wrap justify-center items-center gap-3">
+        <div className="flex items-center">
           <span>INDIA |</span>
         </div>
-        <div className="flex items-center space-x-2">
-          <img src={uaeFlag} alt="Dubai" className="w-6 h-6" />
-          <span>DUBAI |</span>
+        <div className="flex items-center ">
+          <span>UAE |</span>
         </div>
-        <div className="flex items-center space-x-2">
-          <img src={nzFlag} alt="New Zealand" className="w-6 h-6" />
+        <div className="flex items-center ">
           <span>NEW ZEALAND |</span>
         </div>
-        <div className="flex items-center space-x-2">
-          <img src={ausFlag} alt="Australia" className="w-6 h-6" />
+        <div className="flex items-center ">
           <span>AUSTRALIA</span>
         </div>
       </div>
