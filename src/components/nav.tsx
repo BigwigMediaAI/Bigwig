@@ -44,27 +44,27 @@ const Navbar = () => {
       submenu: [
         {
           name: "Free AI Tools",
-          href: "#https://bigwigmedia.ai/",
+          href: "https://bigwigmedia.ai/",
           external: true,
         },
         {
           name: "Social Media Management",
-          href: "#",
+          href: "https://bigwig-smm-mu.vercel.app/",
           external: true,
         },
         {
           name: "Review Mangement",
-          href: "#",
+          href: "https://bigwig-orm-ten.vercel.app/",
           external: true,
         },
         {
           name: "LMS For Education",
-          href: "#",
+          href: "https://unify-orpin.vercel.app/",
           external: true,
         },
         {
           name: "LMS For Real Estate",
-          href: "#",
+          href: "https://bigwig-lms.vercel.app/",
           external: true,
         },
       ],
