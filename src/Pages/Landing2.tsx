@@ -35,7 +35,7 @@ function Landing2() {
           className="w-full max-h-full object-contain"
         />
         {/* Centered Office Names */}
-        <div className="w-full absolute bottom-72 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-thin text-white text-sm tracking-widest z-10 text-center flex flex-wrap justify-center items-center gap-3">
+        <div className="w-full absolute bottom-48 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-thin text-white text-sm tracking-widest z-10 text-center flex flex-wrap justify-center items-center gap-3">
           <div className="flex items-center space-x-2">
             <span>INDIA |</span>
           </div>
