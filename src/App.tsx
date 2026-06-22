@@ -10,6 +10,8 @@ import Agency from "./components/Agency";
 import Strategy from "./components/Strategy";
 import ContactPage from "./Pages/Contact";
 import Privacy from "./Pages/Privacy";
+import Dashboard from "./Pages/Admin/Dashboard.tsx";
+import AdminLayout from "./components/AdminLayout.tsx";
 
 function App() {
   return (
@@ -39,6 +41,9 @@ function App() {
         <Route path="/Agency" element={<Agency />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/privacy-policy" element={<Privacy />} />
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index element={<Dashboard />} />
+        </Route>
       </Routes>
     </Router>
   );
