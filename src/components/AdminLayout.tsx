@@ -16,7 +16,6 @@ import {
   UserCog,
   Users,
   Users2,
-  UserX2,
 } from "lucide-react";
 
 import Cookies from "js-cookie";
