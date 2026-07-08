@@ -3,10 +3,13 @@
 import { useEffect, useState } from "react";
 import {
   Activity,
+  BarChart3,
   CalendarDays,
   Clock3,
   Eye,
   Globe,
+  MousePointerClick,
+  Search,
   Target,
   TrendingUp,
   UserCheck,
@@ -109,6 +112,27 @@ interface ConversionData {
   }>;
 }
 
+interface SearchConsoleItem {
+  clicks: number;
+  impressions: number;
+  ctr: number;
+  position: number;
+}
+
+interface SearchConsoleQuery extends SearchConsoleItem {
+  query: string;
+}
+
+interface SearchConsolePage extends SearchConsoleItem {
+  page: string;
+}
+
+interface SearchConsoleData extends SearchConsoleItem {
+  siteUrl: string;
+  queries: SearchConsoleQuery[];
+  pages: SearchConsolePage[];
+}
+
 type DatePreset = "7d" | "30d" | "90d" | "custom";
 
 const VISITOR_COLORS = ["#65BC4F", "#2563eb", "#f59e0b", "#e11d48"];
@@ -158,6 +182,16 @@ const emptyConversions: ConversionData = {
   sourceBreakdown: [],
 };
 
+const emptySearchConsole: SearchConsoleData = {
+  siteUrl: "",
+  clicks: 0,
+  impressions: 0,
+  ctr: 0,
+  position: 0,
+  queries: [],
+  pages: [],
+};
+
 export default function AnalyticsPage() {
   const API_BASE = process.env.NEXT_PUBLIC_API_BASE;
   const defaultDateRange = getPresetRange("30d");
@@ -177,6 +211,8 @@ export default function AnalyticsPage() {
   const [visitorTypes, setVisitorTypes] = useState<VisitorTypeData[]>([]);
   const [conversions, setConversions] =
     useState<ConversionData>(emptyConversions);
+  const [searchConsole, setSearchConsole] =
+    useState<SearchConsoleData>(emptySearchConsole);
   const [realtime, setRealtime] = useState<RealtimeData>({
     activeUsers: 0,
     countries: [],
@@ -211,6 +247,7 @@ export default function AnalyticsPage() {
         browsersRes,
         visitorTypesRes,
         conversionsRes,
+        searchConsoleRes,
       ] = await Promise.all([
         fetch(`${API_BASE}/analytics/overview?${queryString}`, {
           cache: "no-store",
@@ -242,6 +279,9 @@ export default function AnalyticsPage() {
         fetch(`${API_BASE}/analytics/conversions?${queryString}`, {
           cache: "no-store",
         }),
+        fetch(`${API_BASE}/analytics/search-console?${queryString}`, {
+          cache: "no-store",
+        }),
       ]);
 
       const overview = await overviewRes.json();
@@ -254,6 +294,7 @@ export default function AnalyticsPage() {
       const browsersData = await browsersRes.json();
       const visitorTypesData = await visitorTypesRes.json();
       const conversionsData = await conversionsRes.json();
+      const searchConsoleData = await searchConsoleRes.json();
 
       setAnalytics(overview);
       setChartData(Array.isArray(chart) ? chart : []);
@@ -271,6 +312,18 @@ export default function AnalyticsPage() {
           : {}),
         sourceBreakdown: Array.isArray(conversionsData?.sourceBreakdown)
           ? conversionsData.sourceBreakdown
+          : [],
+      });
+      setSearchConsole({
+        ...emptySearchConsole,
+        ...(searchConsoleData && typeof searchConsoleData === "object"
+          ? searchConsoleData
+          : {}),
+        queries: Array.isArray(searchConsoleData?.queries)
+          ? searchConsoleData.queries
+          : [],
+        pages: Array.isArray(searchConsoleData?.pages)
+          ? searchConsoleData.pages
           : [],
       });
     } catch (error) {
@@ -334,6 +387,8 @@ export default function AnalyticsPage() {
   );
   const formatPercent = (value: number) => `${(value * 100).toFixed(1)}%`;
   const formatPercentValue = (value: number) => `${value.toFixed(2)}%`;
+  const formatCtr = (value: number) => `${(value * 100).toFixed(2)}%`;
+  const formatPosition = (value: number) => value.toFixed(1);
   const formatShare = (value: number) =>
     totalVisitorTypes > 0
       ? `${((value / totalVisitorTypes) * 100).toFixed(1)}%`
@@ -763,6 +818,78 @@ export default function AnalyticsPage() {
         />
       </div>
 
+      <div className="mb-6 rounded-3xl border border-[var(--border)] bg-[var(--card)] p-6">
+        <div className="mb-6 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+          <div>
+            <div className="mb-2 flex items-center gap-2 text-[var(--primary)]">
+              <Search size={18} />
+              <span className="text-xs font-semibold uppercase tracking-[3px]">
+                Search Console
+              </span>
+            </div>
+            <h2 className="text-xl font-semibold text-[var(--text-primary)]">
+              SEO Performance
+            </h2>
+            <p className="mt-1 text-sm text-[var(--text-secondary)]">
+              Organic search clicks, impressions, queries, and ranking pages.
+            </p>
+          </div>
+
+          {searchConsole.siteUrl && (
+            <span className="rounded-full border border-[var(--border)] bg-[var(--background-secondary)] px-4 py-2 text-xs font-semibold text-[var(--text-secondary)]">
+              {searchConsole.siteUrl}
+            </span>
+          )}
+        </div>
+
+        <div className="mb-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+          <MiniStat
+            label="Clicks"
+            value={loading ? "..." : searchConsole.clicks.toLocaleString()}
+            icon={<MousePointerClick size={18} />}
+            tone="green"
+          />
+          <MiniStat
+            label="Impressions"
+            value={loading ? "..." : searchConsole.impressions.toLocaleString()}
+            icon={<Eye size={18} />}
+            tone="blue"
+          />
+          <MiniStat
+            label="CTR"
+            value={loading ? "..." : formatCtr(searchConsole.ctr)}
+            icon={<TrendingUp size={18} />}
+            tone="cyan"
+          />
+          <MiniStat
+            label="Avg Position"
+            value={loading ? "..." : formatPosition(searchConsole.position)}
+            icon={<BarChart3 size={18} />}
+            tone="amber"
+          />
+        </div>
+
+        <div className="grid gap-6 xl:grid-cols-2">
+          <SearchConsoleTable
+            title="Top Queries"
+            labelKey="query"
+            items={searchConsole.queries}
+            emptyText="No search query data available."
+            formatCtr={formatCtr}
+            formatPosition={formatPosition}
+          />
+
+          <SearchConsoleTable
+            title="Top Search Pages"
+            labelKey="page"
+            items={searchConsole.pages}
+            emptyText="No search page data available."
+            formatCtr={formatCtr}
+            formatPosition={formatPosition}
+          />
+        </div>
+      </div>
+
       <div className="mb-6 grid grid-cols-1 gap-3 md:grid-cols-5">
         {engagementStats.map((item) => (
           <MiniStat
@@ -1001,6 +1128,100 @@ export default function AnalyticsPage() {
           }))}
           emptyText="No browser analytics available."
         />
+      </div>
+    </div>
+  );
+}
+
+function SearchConsoleTable({
+  title,
+  labelKey,
+  items,
+  emptyText,
+  formatCtr,
+  formatPosition,
+}: {
+  title: string;
+  labelKey: "query" | "page";
+  items: Array<SearchConsoleQuery | SearchConsolePage>;
+  emptyText: string;
+  formatCtr: (value: number) => string;
+  formatPosition: (value: number) => string;
+}) {
+  const getLabel = (item: SearchConsoleQuery | SearchConsolePage) =>
+    labelKey === "query" && "query" in item
+      ? item.query
+      : "page" in item
+        ? item.page
+        : "";
+
+  return (
+    <div className="overflow-hidden rounded-2xl border border-[var(--border)]">
+      <div className="border-b border-[var(--border)] bg-[var(--background-secondary)] px-5 py-4">
+        <h3 className="font-semibold text-[var(--text-primary)]">{title}</h3>
+      </div>
+
+      <div className="overflow-x-auto">
+        <table className="w-full min-w-[620px]">
+          <thead className="border-b border-[var(--border)]">
+            <tr>
+              <th className="px-5 py-3 text-left text-xs font-semibold uppercase tracking-[2px] text-[var(--text-secondary)]">
+                {labelKey === "query" ? "Query" : "Page"}
+              </th>
+              <th className="px-5 py-3 text-right text-xs font-semibold uppercase tracking-[2px] text-[var(--text-secondary)]">
+                Clicks
+              </th>
+              <th className="px-5 py-3 text-right text-xs font-semibold uppercase tracking-[2px] text-[var(--text-secondary)]">
+                Impr.
+              </th>
+              <th className="px-5 py-3 text-right text-xs font-semibold uppercase tracking-[2px] text-[var(--text-secondary)]">
+                CTR
+              </th>
+              <th className="px-5 py-3 text-right text-xs font-semibold uppercase tracking-[2px] text-[var(--text-secondary)]">
+                Pos.
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {items.length > 0 ? (
+              items.map((item) => {
+                const label = getLabel(item);
+
+                return (
+                  <tr
+                    key={label}
+                    className="border-b border-[var(--border)] last:border-b-0"
+                  >
+                    <td className="max-w-[260px] truncate px-5 py-4 text-sm font-medium text-[var(--text-primary)]">
+                      {label}
+                    </td>
+                    <td className="px-5 py-4 text-right text-sm">
+                      {item.clicks.toLocaleString()}
+                    </td>
+                    <td className="px-5 py-4 text-right text-sm">
+                      {item.impressions.toLocaleString()}
+                    </td>
+                    <td className="px-5 py-4 text-right text-sm">
+                      {formatCtr(item.ctr)}
+                    </td>
+                    <td className="px-5 py-4 text-right text-sm">
+                      {formatPosition(item.position)}
+                    </td>
+                  </tr>
+                );
+              })
+            ) : (
+              <tr>
+                <td
+                  colSpan={5}
+                  className="px-5 py-16 text-center text-sm text-[var(--text-secondary)]"
+                >
+                  {emptyText}
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
       </div>
     </div>
   );
