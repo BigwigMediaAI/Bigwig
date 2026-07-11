@@ -25,6 +25,7 @@ import {
   YAxis,
   Tooltip,
   CartesianGrid,
+  Legend,
   PieChart,
   Pie,
   Cell,
@@ -127,10 +128,22 @@ interface SearchConsolePage extends SearchConsoleItem {
   page: string;
 }
 
+interface SearchConsoleTrend extends SearchConsoleItem {
+  date: string;
+}
+
+interface SearchConsoleQueryPage extends SearchConsoleItem {
+  query: string;
+  page: string;
+}
+
 interface SearchConsoleData extends SearchConsoleItem {
   siteUrl: string;
   queries: SearchConsoleQuery[];
   pages: SearchConsolePage[];
+  trend: SearchConsoleTrend[];
+  lowCtrOpportunities: SearchConsoleQuery[];
+  queryPages: SearchConsoleQueryPage[];
 }
 
 type DatePreset = "7d" | "30d" | "90d" | "custom";
@@ -190,6 +203,9 @@ const emptySearchConsole: SearchConsoleData = {
   position: 0,
   queries: [],
   pages: [],
+  trend: [],
+  lowCtrOpportunities: [],
+  queryPages: [],
 };
 
 export default function AnalyticsPage() {
@@ -324,6 +340,17 @@ export default function AnalyticsPage() {
           : [],
         pages: Array.isArray(searchConsoleData?.pages)
           ? searchConsoleData.pages
+          : [],
+        trend: Array.isArray(searchConsoleData?.trend)
+          ? searchConsoleData.trend
+          : [],
+        lowCtrOpportunities: Array.isArray(
+          searchConsoleData?.lowCtrOpportunities,
+        )
+          ? searchConsoleData.lowCtrOpportunities
+          : [],
+        queryPages: Array.isArray(searchConsoleData?.queryPages)
+          ? searchConsoleData.queryPages
           : [],
       });
     } catch (error) {
@@ -869,6 +896,66 @@ export default function AnalyticsPage() {
           />
         </div>
 
+        <div className="mb-6 rounded-2xl border border-[var(--border)] bg-[var(--background-secondary)] p-5">
+          <div className="mb-5 flex items-center justify-between gap-4">
+            <div>
+              <h3 className="font-semibold text-[var(--text-primary)]">
+                Daily Search Trend
+              </h3>
+              <p className="mt-1 text-sm text-[var(--text-secondary)]">
+                Organic clicks and impressions across the selected period.
+              </p>
+            </div>
+            <TrendingUp size={22} className="text-[var(--primary)]" />
+          </div>
+
+          {searchConsole.trend.length > 0 ? (
+            <div className="h-[320px]">
+              <ResponsiveContainer width="100%" height="100%">
+                <LineChart data={searchConsole.trend}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="date" />
+                  <YAxis yAxisId="clicks" />
+                  <YAxis yAxisId="impressions" orientation="right" />
+                  <Tooltip
+                    formatter={(value, name) => [
+                      Number(value || 0).toLocaleString(),
+                      name === "clicks" ? "Clicks" : "Impressions",
+                    ]}
+                    contentStyle={{
+                      borderRadius: 16,
+                      border: "1px solid #e5e7eb",
+                    }}
+                  />
+                  <Legend />
+                  <Line
+                    yAxisId="clicks"
+                    type="monotone"
+                    dataKey="clicks"
+                    stroke="#65BC4F"
+                    strokeWidth={3}
+                    dot={false}
+                    activeDot={{ r: 6 }}
+                  />
+                  <Line
+                    yAxisId="impressions"
+                    type="monotone"
+                    dataKey="impressions"
+                    stroke="#2563eb"
+                    strokeWidth={3}
+                    dot={false}
+                    activeDot={{ r: 6 }}
+                  />
+                </LineChart>
+              </ResponsiveContainer>
+            </div>
+          ) : (
+            <div className="flex h-[320px] items-center justify-center rounded-2xl border border-dashed border-[var(--border)] text-center text-sm text-[var(--text-secondary)]">
+              No daily Search Console trend data available.
+            </div>
+          )}
+        </div>
+
         <div className="grid gap-6 xl:grid-cols-2">
           <SearchConsoleTable
             title="Top Queries"
@@ -884,6 +971,24 @@ export default function AnalyticsPage() {
             labelKey="page"
             items={searchConsole.pages}
             emptyText="No search page data available."
+            formatCtr={formatCtr}
+            formatPosition={formatPosition}
+          />
+        </div>
+
+        <div className="mt-6 grid gap-6 xl:grid-cols-2">
+          <SearchConsoleTable
+            title="Low CTR Opportunities"
+            labelKey="query"
+            items={searchConsole.lowCtrOpportunities}
+            emptyText="No low CTR opportunities found for this period."
+            formatCtr={formatCtr}
+            formatPosition={formatPosition}
+          />
+
+          <QueryPageTable
+            items={searchConsole.queryPages}
+            emptyText="No query and page combination data available."
             formatCtr={formatCtr}
             formatPosition={formatPosition}
           />
@@ -1214,6 +1319,93 @@ function SearchConsoleTable({
               <tr>
                 <td
                   colSpan={5}
+                  className="px-5 py-16 text-center text-sm text-[var(--text-secondary)]"
+                >
+                  {emptyText}
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+function QueryPageTable({
+  items,
+  emptyText,
+  formatCtr,
+  formatPosition,
+}: {
+  items: SearchConsoleQueryPage[];
+  emptyText: string;
+  formatCtr: (value: number) => string;
+  formatPosition: (value: number) => string;
+}) {
+  return (
+    <div className="overflow-hidden rounded-2xl border border-[var(--border)]">
+      <div className="border-b border-[var(--border)] bg-[var(--background-secondary)] px-5 py-4">
+        <h3 className="font-semibold text-[var(--text-primary)]">
+          Query + Page Mapping
+        </h3>
+      </div>
+
+      <div className="overflow-x-auto">
+        <table className="w-full min-w-[760px]">
+          <thead className="border-b border-[var(--border)]">
+            <tr>
+              <th className="px-5 py-3 text-left text-xs font-semibold uppercase tracking-[2px] text-[var(--text-secondary)]">
+                Query
+              </th>
+              <th className="px-5 py-3 text-left text-xs font-semibold uppercase tracking-[2px] text-[var(--text-secondary)]">
+                Page
+              </th>
+              <th className="px-5 py-3 text-right text-xs font-semibold uppercase tracking-[2px] text-[var(--text-secondary)]">
+                Clicks
+              </th>
+              <th className="px-5 py-3 text-right text-xs font-semibold uppercase tracking-[2px] text-[var(--text-secondary)]">
+                Impr.
+              </th>
+              <th className="px-5 py-3 text-right text-xs font-semibold uppercase tracking-[2px] text-[var(--text-secondary)]">
+                CTR
+              </th>
+              <th className="px-5 py-3 text-right text-xs font-semibold uppercase tracking-[2px] text-[var(--text-secondary)]">
+                Pos.
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {items.length > 0 ? (
+              items.map((item) => (
+                <tr
+                  key={`${item.query}-${item.page}`}
+                  className="border-b border-[var(--border)] last:border-b-0"
+                >
+                  <td className="max-w-[220px] truncate px-5 py-4 text-sm font-medium text-[var(--text-primary)]">
+                    {item.query}
+                  </td>
+                  <td className="max-w-[260px] truncate px-5 py-4 text-sm text-[var(--text-secondary)]">
+                    {item.page}
+                  </td>
+                  <td className="px-5 py-4 text-right text-sm">
+                    {item.clicks.toLocaleString()}
+                  </td>
+                  <td className="px-5 py-4 text-right text-sm">
+                    {item.impressions.toLocaleString()}
+                  </td>
+                  <td className="px-5 py-4 text-right text-sm">
+                    {formatCtr(item.ctr)}
+                  </td>
+                  <td className="px-5 py-4 text-right text-sm">
+                    {formatPosition(item.position)}
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td
+                  colSpan={6}
                   className="px-5 py-16 text-center text-sm text-[var(--text-secondary)]"
                 >
                   {emptyText}
