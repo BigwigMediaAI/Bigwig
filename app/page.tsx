@@ -8,7 +8,6 @@ export default function Home() {
   const [showContent, setShowContent] = useState(false);
   const rippleRef = useRef<HTMLDivElement>(null);
   const [showServices, setShowServices] = useState(false);
-  const [showProducts, setShowProducts] = useState(false);
 
   useEffect(() => {
     let isMounted = true;
@@ -109,33 +108,34 @@ export default function Home() {
                     onClick={() => setShowServices(!showServices)}
                     className="flex items-center cursor-pointer hover:text-gray-300 transition space-x-2"
                   >
-                    <span className="font-thin text-white">Services</span>
+                    <span className="font-thin text-white">
+                      Product & Services
+                    </span>
 
                     <ChevronDown className="w-4 h-4 text-white transition-transform duration-200" />
                   </div>
 
                   {showServices && (
                     <div className="ml-4 mt-2 space-y-2 text-[16px]">
-                      <a
-                        href="https://www.bigwigdigital.in/"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                      <Link
+                        href="/services/digital-marketing"
                         className="block"
                       >
                         Digital Marketing
-                      </a>
-                      <a
-                        href="https://bigwig-events-planning.vercel.app/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block"
-                      >
+                      </Link>
+                      <Link href="/services/events" className="block">
                         Events
-                      </a>
+                      </Link>
+                      <Link href="/services/unifyi" className="block">
+                        Unifyi
+                      </Link>
+                      <Link href="/services/critiquee" className="block">
+                        Critiquee
+                      </Link>
                     </div>
                   )}
                 </div>
-                <div>
+                {/* <div>
                   <div
                     onClick={() => setShowProducts(!showProducts)}
                     className="flex items-center cursor-pointer hover:text-gray-300 transition space-x-2"
@@ -189,7 +189,7 @@ export default function Home() {
                       </a>
                     </div>
                   )}
-                </div>
+                </div> */}
 
                 <Link href="/clients" className="block">
                   Clients
@@ -324,33 +324,32 @@ export default function Home() {
                   onClick={() => setShowServices(!showServices)}
                   className="flex items-center cursor-pointer hover:text-gray-300 transition space-x-2"
                 >
-                  <span className="font-thin text-white">Services</span>
+                  <span className="font-thin text-white">
+                    {" "}
+                    Product & Services
+                  </span>
 
                   <ChevronDown className="w-4 h-4 text-white transition-transform duration-200" />
                 </div>
 
                 {showServices && (
                   <div className="ml-4 mt-2 space-y-2 text-[16px]">
-                    <a
-                      href="https://www.bigwigdigital.in/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block"
-                    >
+                    <Link href="/services/digital-marketing" className="block">
                       Digital Marketing
-                    </a>
-                    <a
-                      href="https://bigwig-events-planning.vercel.app/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block"
-                    >
+                    </Link>
+                    <Link href="/services/events" className="block">
                       Events
-                    </a>
+                    </Link>
+                    <Link href="/services/unifyi" className="block">
+                      Unifyi
+                    </Link>
+                    <Link href="/services/critiquee" className="block">
+                      Critiquee
+                    </Link>
                   </div>
                 )}
               </div>
-              <div>
+              {/* <div>
                 <div
                   onClick={() => setShowProducts(!showProducts)}
                   className="flex items-center cursor-pointer hover:text-gray-300 transition space-x-2"
@@ -404,7 +403,7 @@ export default function Home() {
                     </a>
                   </div>
                 )}
-              </div>
+              </div> */}
               <li>
                 <Link href="/clients">Clients</Link>
               </li>
