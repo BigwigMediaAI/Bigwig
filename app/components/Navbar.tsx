@@ -16,6 +16,10 @@ const navLinks = [
         href: "/services/digital-marketing",
       },
       {
+        name: "Bigwig Technology",
+        href: "/services/bigwig-technology",
+      },
+      {
         name: "Events",
         href: "/services/events",
       },

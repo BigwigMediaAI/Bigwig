@@ -123,6 +123,12 @@ export default function Home() {
                       >
                         Digital Marketing
                       </Link>
+                      <Link
+                        href="/services/bigwig-technology"
+                        className="block"
+                      >
+                        Bigwig Technology
+                      </Link>
                       <Link href="/services/events" className="block">
                         Events
                       </Link>
@@ -336,6 +342,9 @@ export default function Home() {
                   <div className="ml-4 mt-2 space-y-2 text-[16px]">
                     <Link href="/services/digital-marketing" className="block">
                       Digital Marketing
+                    </Link>
+                    <Link href="/services/bigwig-technology" className="block">
+                      Bigwig Technology
                     </Link>
                     <Link href="/services/events" className="block">
                       Events
