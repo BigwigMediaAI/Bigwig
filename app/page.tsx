@@ -1,13 +1,11 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import HomeNavigation from "./components/HomeNavigation";
 
 export default function Home() {
-  const [showContent, setShowContent] = useState(false);
   const rippleRef = useRef<HTMLDivElement>(null);
-  const [showServices, setShowServices] = useState(false);
 
   useEffect(() => {
     let isMounted = true;
@@ -75,146 +73,7 @@ export default function Home() {
 
         {/* Left 5/6 Content */}
         <div className="relative w-5/6 h-full">
-          {/* Hamburger and dropdown container */}
-          <div className="absolute top-8 left-16 z-20">
-            <Image
-              src="/nav.png"
-              alt="hamburger"
-              width={48}
-              height={48}
-              className="w-12 h-12 bg-white rounded-full border cursor-pointer"
-              onClick={() => setShowContent(!showContent)}
-            />
-
-            {/* Animated Toggleable Content */}
-            <div
-              className={`
-              overflow-hidden transition-all duration-500 ease-in-out
-              ${showContent ? "opacity-100 max-h-[500px]" : "opacity-0 max-h-0"}
-            `}
-              style={{
-                fontFamily: "inherit",
-                fontSize: "1.2rem",
-                color: "white",
-              }}
-            >
-              <div className="mt-4 space-y-3 font-thin cursor-pointer text-white z-50">
-                <Link href="/agency" className="block">
-                  Agency
-                </Link>
-
-                <div>
-                  <div
-                    onClick={() => setShowServices(!showServices)}
-                    className="flex items-center cursor-pointer hover:text-gray-300 transition space-x-2"
-                  >
-                    <span className="font-thin text-white">
-                      Product & Services
-                    </span>
-
-                    <ChevronDown className="w-4 h-4 text-white transition-transform duration-200" />
-                  </div>
-
-                  {showServices && (
-                    <div className="ml-4 mt-2 space-y-2 text-[16px]">
-                      <Link
-                        href="/services/digital-marketing"
-                        className="block"
-                      >
-                        Digital Marketing
-                      </Link>
-                      <Link
-                        href="/services/bigwig-technology"
-                        className="block"
-                      >
-                        Bigwig Technology
-                      </Link>
-                      <Link href="/services/events" className="block">
-                        Events
-                      </Link>
-                      <Link href="/services/unifyi" className="block">
-                        Unifyi
-                      </Link>
-                      <Link href="/services/critiquee" className="block">
-                        Critiquee
-                      </Link>
-                    </div>
-                  )}
-                </div>
-                {/* <div>
-                  <div
-                    onClick={() => setShowProducts(!showProducts)}
-                    className="flex items-center cursor-pointer hover:text-gray-300 transition space-x-2"
-                  >
-                    <span className="font-thin text-white">AI Products</span>
-
-                    <ChevronDown className="w-4 h-4 text-white transition-transform duration-200" />
-                  </div>
-
-                  {showProducts && (
-                    <div className="ml-4 mt-2 space-y-2 text-[16px]">
-                      <a
-                        href="https://bigwigmedia.ai/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block"
-                      >
-                        Free AI Tools
-                      </a>
-                      <a
-                        href="https://bigwig-smm-mu.vercel.app/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block"
-                      >
-                        Social Media Management
-                      </a>
-                      <a
-                        href="https://bigwig-orm-ten.vercel.app/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block"
-                      >
-                        Review Mangement
-                      </a>
-                      <a
-                        href="https://unify-orpin.vercel.app/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block"
-                      >
-                        LMS For Education
-                      </a>
-                      <a
-                        href="https://bigwig-lms.vercel.app/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block"
-                      >
-                        LMS For Real Estate
-                      </a>
-                    </div>
-                  )}
-                </div> */}
-
-                <Link href="/clients" className="block">
-                  Clients
-                </Link>
-                <Link href="/strategy" className="block">
-                  Strategy
-                </Link>
-                <Link href="/Y-Bigwig" className="block">
-                  Y Bigwig
-                </Link>
-                <Link href="/things-we-do" className="block">
-                  Things We Do
-                </Link>
-                <Link href="/method" className="block">
-                  Method to Madness
-                </Link>
-              </div>
-            </div>
-          </div>
+          <HomeNavigation variant="desktop" />
 
           {/* Bulb GIF - top right */}
           <Image
@@ -273,16 +132,10 @@ export default function Home() {
       </div>
 
       <div className="flex lg:hidden flex-col justify-between w-full h-screen bg-[#FF3D48] relative text-white overflow-hidden">
+        <HomeNavigation variant="mobile" />
+
         {/* Top Bar */}
         <div className="flex justify-between w-full px-4 pt-6 absolute top-0 z-10">
-          <Image
-            src="/nav.png"
-            alt="hamburger"
-            width={48}
-            height={48}
-            className="w-10 h-10 cursor-pointer bg-white rounded-full"
-            onClick={() => setShowContent(!showContent)}
-          />
           <Image
             src="/home_icon-2.gif"
             alt="Bulb"
@@ -317,120 +170,6 @@ export default function Home() {
             </div>
           </div>
         </div>
-
-        {/* Dropdown Menu */}
-        {showContent && (
-          <div className="absolute top-20 left-4 right-4 text-white rounded p-4 z-20 bg-[#FF3D48]">
-            <ul className="space-y-2 text-lg">
-              <li>
-                <Link href="/agency">Agency</Link>
-              </li>
-              <div>
-                <div
-                  onClick={() => setShowServices(!showServices)}
-                  className="flex items-center cursor-pointer hover:text-gray-300 transition space-x-2"
-                >
-                  <span className="font-thin text-white">
-                    {" "}
-                    Product & Services
-                  </span>
-
-                  <ChevronDown className="w-4 h-4 text-white transition-transform duration-200" />
-                </div>
-
-                {showServices && (
-                  <div className="ml-4 mt-2 space-y-2 text-[16px]">
-                    <Link href="/services/digital-marketing" className="block">
-                      Digital Marketing
-                    </Link>
-                    <Link href="/services/bigwig-technology" className="block">
-                      Bigwig Technology
-                    </Link>
-                    <Link href="/services/events" className="block">
-                      Events
-                    </Link>
-                    <Link href="/services/unifyi" className="block">
-                      Unifyi
-                    </Link>
-                    <Link href="/services/critiquee" className="block">
-                      Critiquee
-                    </Link>
-                  </div>
-                )}
-              </div>
-              {/* <div>
-                <div
-                  onClick={() => setShowProducts(!showProducts)}
-                  className="flex items-center cursor-pointer hover:text-gray-300 transition space-x-2"
-                >
-                  <span className="font-thin text-white">AI Products</span>
-
-                  <ChevronDown className="w-4 h-4 text-white transition-transform duration-200" />
-                </div>
-
-                {showProducts && (
-                  <div className="ml-4 mt-2 space-y-2 text-[16px]">
-                    <a
-                      href="https://bigwigmedia.ai/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block"
-                    >
-                      Free AI Tools
-                    </a>
-                    <a
-                      href="#"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block"
-                    >
-                      Social Media Management
-                    </a>
-                    <a
-                      href="#"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block"
-                    >
-                      Review Mangement
-                    </a>
-                    <a
-                      href="#"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block"
-                    >
-                      LMS For Education
-                    </a>
-                    <a
-                      href="#"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block"
-                    >
-                      LMS For Real Estate
-                    </a>
-                  </div>
-                )}
-              </div> */}
-              <li>
-                <Link href="/clients">Clients</Link>
-              </li>
-              <li>
-                <Link href="/strategy">Strategy</Link>
-              </li>
-              <li>
-                <Link href="/Y-Bigwig">Y Bigwig</Link>
-              </li>
-              <li>
-                <Link href="/things-we-do">Things We Do</Link>
-              </li>
-              <li>
-                <Link href="/method-to-madness">Method to Madness</Link>
-              </li>
-            </ul>
-          </div>
-        )}
 
         {/* Bottom Buttons */}
         <div className="w-full absolute bottom-0 left-0 flex">
