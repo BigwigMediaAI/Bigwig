@@ -13,6 +13,7 @@ import {
 import Link from "next/link";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import FAQ, { FaqItem } from "@/app/components/FAQ";
 
 const unifyiModules = [
   {
@@ -68,6 +69,210 @@ const highlights = [
     title: "Smarter Decision Making",
     description:
       "Track progress, manage documents, and improve response time with real-time visibility.",
+  },
+];
+
+const faqs: FaqItem[] = [
+  {
+    question: "What is Unifyi?",
+    answer:
+      "Unifyi is a cloud-based admission management platform that helps universities, colleges, schools, and education consultants streamline the entire student admission process from inquiry to enrollment.",
+  },
+  {
+    question: "Who can use Unifyi?",
+    answer:
+      "Unifyi is designed for universities, colleges, schools, educational institutions, admission consultants, and students looking for a simplified admission experience.",
+  },
+  {
+    question: "How does Unifyi simplify the admission process?",
+    answer:
+      "Unifyi automates application management, document verification, communication, status tracking, reporting, and student onboarding from a centralized dashboard.",
+  },
+  {
+    question: "Can students apply online through Unifyi?",
+    answer:
+      "Yes. Students can complete applications, upload documents, track admission status, and receive updates through the platform.",
+  },
+  {
+    question: "Can universities manage multiple programs?",
+    answer:
+      "Yes. Institutions can create and manage multiple courses, departments, campuses, and admission cycles from one platform.",
+  },
+  {
+    question: "Does Unifyi support multiple campuses?",
+    answer:
+      "Yes. Multi-campus institutions can manage admissions, students, and reports for each campus independently.",
+  },
+  {
+    question: "Can students track their application status?",
+    answer:
+      "Yes. Students can log in anytime to view real-time updates on their application progress.",
+  },
+  {
+    question: "Does Unifyi support online document uploads?",
+    answer:
+      "Yes. Students can securely upload academic records, identification documents, certificates, and other required files.",
+  },
+  {
+    question: "Can admission officers verify documents?",
+    answer:
+      "Yes. Authorized staff can review, verify, approve, or request corrections for submitted documents.",
+  },
+  {
+    question: "Does Unifyi send admission notifications?",
+    answer:
+      "Yes. Automated notifications can be sent via email, SMS, or other supported communication channels.",
+  },
+  {
+    question: "Can students receive application reminders?",
+    answer:
+      "Yes. Automated reminders help students complete pending applications or upload missing documents before deadlines.",
+  },
+  {
+    question: "Does Unifyi support application fee payments?",
+    answer:
+      "Yes. The platform integrates with secure payment gateways for online application fee collection.",
+  },
+  {
+    question: "Can universities customize admission forms?",
+    answer:
+      "Yes. Institutions can create custom admission forms based on programs, departments, or eligibility requirements.",
+  },
+  {
+    question: "Does Unifyi support scholarship applications?",
+    answer:
+      "Yes. Scholarship application workflows can be integrated into the admission process.",
+  },
+  {
+    question: "Can admission staff communicate with applicants?",
+    answer:
+      "Yes. Staff can send updates, announcements, reminders, and personalized messages directly through the platform.",
+  },
+  {
+    question: "Does Unifyi include a student CRM?",
+    answer:
+      "Yes. The platform includes CRM features to manage student inquiries, follow-ups, counseling, and admissions.",
+  },
+  {
+    question: "Can education consultants use Unifyi?",
+    answer:
+      "Yes. Consultants can manage multiple students, universities, applications, and admission progress from a centralized dashboard.",
+  },
+  {
+    question: "Does Unifyi support lead management?",
+    answer:
+      "Yes. Institutions can capture, organize, and nurture prospective student inquiries efficiently.",
+  },
+  {
+    question: "Can admission teams collaborate?",
+    answer:
+      "Yes. Multiple team members can work together using role-based permissions and workflow management.",
+  },
+  {
+    question: "Does Unifyi provide role-based access control?",
+    answer:
+      "Yes. Different user roles can be assigned to administrators, counselors, admission officers, and faculty members.",
+  },
+  {
+    question: "Can institutions generate admission reports?",
+    answer:
+      "Yes. The platform provides detailed reports on applications, enrollments, conversion rates, and admission performance.",
+  },
+  {
+    question: "Does Unifyi offer analytics dashboards?",
+    answer:
+      "Yes. Interactive dashboards provide insights into application trends, student demographics, and admission performance.",
+  },
+  {
+    question: "Can institutions export reports?",
+    answer:
+      "Yes. Reports can be exported for management reviews, audits, and strategic planning.",
+  },
+  {
+    question:
+      "Does Unifyi integrate with existing student information systems?",
+    answer:
+      "Yes. The platform supports integration with various SIS, ERP, CRM, and third-party educational systems.",
+  },
+  {
+    question: "Can Unifyi integrate with payment gateways?",
+    answer:
+      "Yes. Secure payment gateway integrations allow institutions to collect admission and application fees online.",
+  },
+  {
+    question: "Does Unifyi support email and SMS integration?",
+    answer:
+      "Yes. Automated communication can be sent through integrated email and SMS services.",
+  },
+  {
+    question: "Can students schedule counseling sessions?",
+    answer:
+      "Yes. Institutions can enable appointment scheduling for counseling, interviews, or admission guidance.",
+  },
+  {
+    question: "Does Unifyi support interview scheduling?",
+    answer:
+      "Yes. Admission teams can schedule interviews and notify applicants through the platform.",
+  },
+  {
+    question: "Can institutions manage admission deadlines?",
+    answer:
+      "Yes. Important dates, deadlines, and application windows can be configured and managed easily.",
+  },
+  {
+    question: "Does Unifyi support multiple academic sessions?",
+    answer:
+      "Yes. Institutions can manage admissions across multiple academic years and intake periods.",
+  },
+  {
+    question: "Can universities create custom workflows?",
+    answer:
+      "Yes. Admission workflows can be configured to match each institution's approval and verification process.",
+  },
+  {
+    question: "Is student data secure?",
+    answer:
+      "Yes. Unifyi follows industry-standard security practices including encryption, secure authentication, and role-based access controls.",
+  },
+  {
+    question: "Can administrators manage multiple users?",
+    answer:
+      "Yes. Administrators can create user accounts, assign permissions, and monitor platform activity.",
+  },
+  {
+    question: "Does Unifyi support cloud deployment?",
+    answer:
+      "Yes. Unifyi is cloud-based, allowing secure access from anywhere with an internet connection.",
+  },
+  {
+    question: "Can students access the platform on mobile devices?",
+    answer:
+      "Yes. The platform is fully responsive and works across desktops, tablets, and smartphones.",
+  },
+  {
+    question: "Does Unifyi provide technical support?",
+    answer:
+      "Yes. Our support team assists with onboarding, technical issues, training, and ongoing platform usage.",
+  },
+  {
+    question: "Is training available for university staff?",
+    answer:
+      "Yes. We provide onboarding sessions, documentation, and training to help staff use the platform effectively.",
+  },
+  {
+    question: "Can I request a demo?",
+    answer:
+      "Absolutely. You can schedule a personalized demo to explore Unifyi's features and see how it fits your institution's admission process.",
+  },
+  {
+    question: "How much does Unifyi cost?",
+    answer:
+      "Pricing depends on the number of users, campuses, required modules, and customizations. Contact our team for a personalized quote.",
+  },
+  {
+    question: "Why should institutions choose Unifyi?",
+    answer:
+      "Unifyi streamlines the entire admission lifecycle with automation, secure document management, student CRM, analytics, communication tools, and seamless collaboration, helping institutions improve efficiency and deliver a better admission experience.",
   },
 ];
 
@@ -199,7 +404,12 @@ export default function UnifyiPage() {
             })}
           </div>
         </section>
-
+        <FAQ
+          faqs={faqs}
+          heading="Digital Marketing FAQs"
+          subheading="Answers to the most common questions about our services, timelines, and approach."
+          className="mx-auto w-full max-w-7xl px-5 py-16 md:px-8"
+        />
         <section className="bg-[#EE3D49] px-5 py-14 text-white md:px-8">
           <div className="mx-auto flex w-full max-w-7xl flex-col items-start justify-between gap-6 md:flex-row md:items-center">
             <div>

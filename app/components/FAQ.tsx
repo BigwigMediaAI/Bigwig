@@ -31,31 +31,34 @@ export default function FAQ({
   const hasMore = visibleCount < faqs.length;
   const canCollapse = visibleCount > initialDisplayCount;
   const buttonRef = useRef<HTMLDivElement | null>(null);
-
   const handleShowMore = () => {
     setVisibleCount((current) => Math.min(current + displayStep, faqs.length));
   };
 
+  const actionRef = useRef<HTMLDivElement | null>(null);
+
   const handleShowLess = () => {
     setVisibleCount(initialDisplayCount);
-    setShouldScroll(true);
+
+    setTimeout(() => {
+      actionRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }, 50);
   };
 
   useEffect(() => {
     if (!shouldScroll || visibleCount !== initialDisplayCount) return;
 
-    const timeoutId = window.setTimeout(() => {
-      window.requestAnimationFrame(() => {
-        buttonRef.current?.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-          inline: "nearest",
-        });
-        setShouldScroll(false);
+    requestAnimationFrame(() => {
+      actionRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
       });
-    }, 120);
 
-    return () => window.clearTimeout(timeoutId);
+      setShouldScroll(false);
+    });
   }, [shouldScroll, visibleCount, initialDisplayCount]);
 
   return (
@@ -88,7 +91,11 @@ export default function FAQ({
           </div>
         ))}
       </div>
+      <div ref={actionRef} />
 
+      {(hasMore || canCollapse) && (
+        <div className="mt-8 flex flex-wrap items-center gap-3"></div>
+      )}
       {(hasMore || canCollapse) && (
         <div ref={buttonRef} className="mt-8 flex flex-wrap items-center gap-3">
           {hasMore ? (

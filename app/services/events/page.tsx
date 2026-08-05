@@ -57,204 +57,204 @@ const eventServices = [
 ];
 const faqs: FaqItem[] = [
   {
-    question: "How long does it take to see results from digital marketing?",
+    question: "What types of events do you organize?",
     answer:
-      "SEO and organic growth are steady processes that typically gain momentum over several weeks, while paid campaigns and website improvements can start generating engagement right away.",
+      "We organize weddings, corporate events, conferences, exhibitions, product launches, birthday parties, anniversaries, award ceremonies, concerts, and private celebrations.",
   },
   {
-    question: "Can you handle both my website and social media marketing?",
+    question: "Do you provide complete event planning services?",
     answer:
-      "Yes. Our team manages website development, SEO, social media marketing, reputation management, branding, content creation, and paid advertising under one strategy.",
+      "Yes. We manage everything from concept development and venue selection to décor, entertainment, catering, logistics, and event execution.",
   },
   {
-    question: "What kind of businesses do you work with?",
+    question: "How far in advance should I book an event?",
     answer:
-      "We work with startups, small businesses, enterprises, agencies, healthcare providers, real estate companies, eCommerce brands, educational institutions, and more.",
+      "We recommend booking at least 2–6 months in advance, depending on the event size and venue availability.",
   },
   {
-    question: "How do you measure campaign success?",
+    question: "Can you organize destination events?",
     answer:
-      "We monitor website traffic, search rankings, lead quality, conversions, engagement, ROI, and customer acquisition to measure campaign performance.",
+      "Yes. We specialize in destination weddings, corporate retreats, and special events across various domestic and international locations.",
   },
   {
-    question: "Do you offer SEO services?",
+    question: "Do you help with venue selection?",
     answer:
-      "Yes. We provide on-page SEO, technical SEO, local SEO, keyword research, content optimization, link building, and performance monitoring.",
+      "Absolutely. We recommend and coordinate with venues that match your budget, guest count, and event theme.",
   },
   {
-    question: "Can you redesign my existing website?",
+    question: "Can you work within my budget?",
     answer:
-      "Absolutely. We redesign websites to improve user experience, performance, branding, mobile responsiveness, and search engine visibility.",
+      "Yes. We create customized event plans that maximize value while staying within your preferred budget.",
   },
   {
-    question: "Do you build custom websites?",
+    question: "Do you provide event decoration services?",
     answer:
-      "Yes. We create custom websites tailored to your business goals using modern technologies and responsive design principles.",
+      "Yes. We offer customized décor including floral arrangements, stage design, lighting, themed decorations, and table settings.",
   },
   {
-    question: "Do you provide eCommerce website development?",
+    question: "Can you arrange catering?",
     answer:
-      "Yes. We build scalable eCommerce websites with secure payment integration, product management, inventory support, and optimized shopping experiences.",
+      "Yes. We partner with trusted caterers to provide menus for weddings, corporate events, and private celebrations.",
   },
   {
-    question: "What social media platforms do you manage?",
+    question: "Do you provide photography and videography?",
     answer:
-      "We manage Facebook, Instagram, LinkedIn, X (Twitter), YouTube, Pinterest, and other platforms based on your audience and business goals.",
+      "Yes. We offer professional photography, cinematic videography, drone coverage, and live streaming services.",
   },
   {
-    question: "How often do you post on social media?",
+    question: "Can you arrange live entertainment?",
     answer:
-      "Posting frequency depends on your marketing plan. We typically recommend 3–7 quality posts per week for consistent engagement.",
+      "Yes. We can book DJs, live bands, celebrity performers, dancers, anchors, comedians, and cultural performances.",
   },
   {
-    question: "Do you create social media content?",
+    question: "Do you organize corporate events?",
     answer:
-      "Yes. Our creative team designs graphics, videos, reels, captions, and campaign creatives aligned with your brand identity.",
+      "Yes. We manage conferences, seminars, product launches, annual meetings, award nights, exhibitions, and team-building events.",
   },
   {
-    question: "Can you run paid advertising campaigns?",
+    question: "Can you organize weddings?",
     answer:
-      "Yes. We manage Google Ads, Meta Ads, LinkedIn Ads, YouTube Ads, and other paid campaigns focused on maximizing ROI.",
+      "Yes. We provide complete wedding planning services including décor, guest management, hospitality, entertainment, and vendor coordination.",
   },
   {
-    question: "Do you provide Google Ads management?",
+    question: "Do you organize birthday parties?",
     answer:
-      "Yes. We handle campaign setup, keyword research, bidding strategy, optimization, conversion tracking, and performance reporting.",
+      "Yes. We plan birthday celebrations for children and adults with customized themes, entertainment, and decorations.",
   },
   {
-    question: "Can you help generate more leads?",
+    question: "Do you offer event theme planning?",
     answer:
-      "Yes. We combine SEO, paid advertising, landing pages, CRO, and content marketing to generate qualified leads for your business.",
+      "Yes. We create personalized themes based on your preferences, brand identity, or celebration style.",
   },
   {
-    question: "Do you offer branding services?",
+    question: "Can you manage guest invitations?",
     answer:
-      "Yes. We create brand identities including logos, color systems, typography, messaging, and visual guidelines.",
+      "Yes. We assist with digital invitations, RSVP management, guest lists, and event communication.",
   },
   {
-    question: "Can you create marketing videos?",
+    question: "Do you provide event staffing?",
     answer:
-      "Yes. We produce promotional videos, motion graphics, product videos, testimonials, and social media reels.",
+      "Yes. We provide coordinators, ushers, hosts, registration teams, security personnel, and hospitality staff.",
   },
   {
-    question: "Do you offer content writing services?",
+    question: "Can you arrange transportation?",
     answer:
-      "Yes. We write SEO-friendly blogs, website copy, landing pages, product descriptions, and marketing content.",
+      "Yes. We organize transportation for guests, VIPs, artists, and event staff when required.",
   },
   {
-    question: "How do you improve website conversions?",
+    question: "Do you handle event permits and permissions?",
     answer:
-      "We optimize page speed, improve UX, strengthen CTAs, simplify navigation, and continuously test layouts for better conversion rates.",
+      "Yes. We assist with required permits and coordinate with local authorities whenever necessary.",
   },
   {
-    question: "Do you provide monthly reports?",
+    question: "Can you manage exhibitions and trade shows?",
     answer:
-      "Yes. Every month you receive transparent reports covering traffic, rankings, leads, campaign performance, and recommendations.",
+      "Yes. We provide booth design, exhibitor management, registration, branding, and event logistics.",
   },
   {
-    question: "Will I have a dedicated account manager?",
+    question: "Do you provide stage and sound setup?",
     answer:
-      "Yes. Every client is assigned a dedicated point of contact for communication, strategy discussions, and project updates.",
+      "Yes. We arrange professional stage design, sound systems, LED walls, lighting, and AV equipment.",
   },
   {
-    question: "Can you improve my local search rankings?",
+    question: "Can you organize virtual or hybrid events?",
     answer:
-      "Yes. We optimize Google Business Profile, local citations, reviews, and location-specific SEO strategies.",
+      "Yes. We manage online, hybrid, and live-streamed events using reliable digital event platforms.",
   },
   {
-    question: "Do you manage online reputation?",
+    question: "How do you ensure events run smoothly?",
     answer:
-      "Yes. We help businesses monitor reviews, improve ratings, respond professionally, and strengthen brand reputation online.",
+      "Our experienced event managers coordinate vendors, timelines, logistics, and on-site operations to ensure seamless execution.",
   },
   {
-    question: "Can you recover a website affected by Google updates?",
+    question: "Do you provide customized event packages?",
     answer:
-      "Yes. We perform comprehensive SEO audits, identify issues, and implement recovery strategies based on Google's best practices.",
+      "Yes. Every package is tailored to your event size, requirements, and budget.",
   },
   {
-    question: "Do you optimize website speed?",
+    question: "Can I hire individual event services?",
     answer:
-      "Yes. We improve loading speed through image optimization, caching, code optimization, and performance best practices.",
+      "Yes. You can hire individual services such as décor, photography, entertainment, catering, or venue management.",
   },
   {
-    question: "Is my website mobile-friendly?",
+    question: "Do you organize engagement ceremonies?",
     answer:
-      "Every website we build is fully responsive and optimized for mobile, tablet, and desktop devices.",
+      "Yes. We plan elegant engagement ceremonies with customized décor, entertainment, and guest management.",
   },
   {
-    question: "Can you migrate my website without downtime?",
+    question: "Can you manage anniversary celebrations?",
     answer:
-      "Yes. We carefully plan website migrations to minimize downtime and preserve SEO performance.",
+      "Yes. We organize anniversary events ranging from intimate family gatherings to grand celebrations.",
   },
   {
-    question: "Do you integrate CRM systems?",
+    question: "Do you provide event branding?",
     answer:
-      "Yes. We integrate CRM platforms, lead forms, marketing automation tools, and third-party business software.",
+      "Yes. We create banners, backdrops, standees, signage, welcome kits, and branded event materials.",
   },
   {
-    question: "Can you track phone calls and form submissions?",
+    question: "Can you arrange celebrity appearances?",
     answer:
-      "Yes. We implement conversion tracking for calls, forms, purchases, and other business goals.",
+      "Yes. Subject to availability and budget, we can coordinate celebrity appearances and performances.",
   },
   {
-    question: "Do you offer email marketing?",
+    question: "Do you offer event insurance assistance?",
     answer:
-      "Yes. We design email campaigns, newsletters, automation workflows, and performance tracking.",
+      "We can guide clients regarding event insurance options where applicable.",
   },
   {
-    question: "Can you help increase website traffic?",
+    question: "How many guests can you manage?",
     answer:
-      "Yes. We combine SEO, content marketing, social media, and paid campaigns to drive qualified traffic.",
+      "We successfully manage events ranging from small private gatherings to large-scale events with thousands of attendees.",
   },
   {
-    question: "Do you create landing pages?",
+    question: "Do you provide wedding guest hospitality?",
     answer:
-      "Yes. We build high-converting landing pages optimized for advertising campaigns and lead generation.",
+      "Yes. We manage guest welcome, accommodation, transportation, and hospitality throughout the event.",
   },
   {
-    question: "Can you manage multiple business locations?",
+    question: "Can you help with event scheduling?",
     answer:
-      "Yes. We develop location-specific marketing strategies and local SEO campaigns for multi-location businesses.",
+      "Yes. We prepare detailed event timelines and coordinate every activity for smooth execution.",
   },
   {
-    question: "Do you work with international clients?",
+    question: "Do you provide post-event support?",
     answer:
-      "Yes. We provide digital marketing services for businesses across different countries and industries.",
+      "Yes. We assist with event wrap-up, vendor settlements, media delivery, and feedback collection.",
   },
   {
-    question: "How much do your services cost?",
+    question: "Can you manage last-minute event changes?",
     answer:
-      "Pricing depends on your business goals, project scope, and selected services. We provide customized packages tailored to your needs.",
+      "Yes. Our experienced team is prepared to adapt quickly to schedule changes and unexpected situations.",
   },
   {
-    question: "Do you require long-term contracts?",
+    question: "How do you select vendors?",
     answer:
-      "We offer flexible engagement models. Depending on the service, clients can choose monthly, quarterly, or long-term partnerships.",
+      "We work with trusted and experienced vendors who meet our quality standards for every event.",
   },
   {
-    question: "How do we get started?",
+    question: "Do you offer eco-friendly event solutions?",
     answer:
-      "We begin with a consultation to understand your goals, analyze your current digital presence, and recommend the most effective strategy.",
+      "Yes. We can recommend sustainable décor, reusable materials, digital invitations, and environmentally conscious event practices.",
   },
   {
-    question: "Can you help with website maintenance?",
+    question: "How much do your event management services cost?",
     answer:
-      "Yes. We provide ongoing website maintenance, security updates, backups, bug fixes, and feature enhancements.",
+      "Pricing depends on the event type, guest count, venue, services required, and customization. We provide personalized quotations after consultation.",
   },
   {
-    question: "Do you offer technical support after project completion?",
+    question: "Will I receive regular updates during planning?",
     answer:
-      "Yes. We provide post-launch support to ensure your website and marketing campaigns continue to perform effectively.",
+      "Yes. We keep clients informed throughout the planning process with regular meetings, progress updates, and approvals.",
   },
   {
-    question: "Can you improve my Google Business Profile?",
+    question: "How do I get started?",
     answer:
-      "Yes. We optimize your profile with accurate information, images, reviews, posts, and local SEO strategies to improve visibility.",
+      "Simply contact us to discuss your event. We'll understand your requirements, suggest ideas, and provide a customized event plan and quotation.",
   },
   {
-    question: "Why should I choose your digital marketing agency?",
+    question: "Why should I choose your event management company?",
     answer:
-      "We combine strategy, creativity, technology, and data-driven marketing to deliver measurable business growth while providing transparent communication and dedicated support.",
+      "Our experienced team combines creativity, meticulous planning, trusted vendor partnerships, and flawless execution to deliver memorable events tailored to your vision.",
   },
 ];
 const highlights = [

@@ -13,6 +13,7 @@ import {
 import Link from "next/link";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import FAQ, { FaqItem } from "@/app/components/FAQ";
 
 const critiqueeModules = [
   {
@@ -68,6 +69,209 @@ const highlights = [
     title: "Stay Ahead",
     description:
       "React faster to feedback and keep your brand reputation resilient.",
+  },
+];
+
+const faqs: FaqItem[] = [
+  {
+    question: "What is Critiquee?",
+    answer:
+      "Critiquee is an all-in-one Online Reputation Management (ORM) platform that helps businesses collect, monitor, manage, and respond to customer reviews across multiple online platforms from a single dashboard.",
+  },
+  {
+    question: "Who can use Critiquee?",
+    answer:
+      "Critiquee is designed for businesses of all sizes, including restaurants, hotels, healthcare providers, retailers, educational institutions, agencies, franchises, and multi-location enterprises.",
+  },
+  {
+    question: "How does Critiquee help improve online reputation?",
+    answer:
+      "Critiquee helps businesses generate more positive reviews, respond to customer feedback quickly, monitor brand reputation, and gain actionable insights to improve customer satisfaction.",
+  },
+  {
+    question: "Which review platforms does Critiquee support?",
+    answer:
+      "Critiquee supports major review platforms such as Google Business Profile, Facebook, Yelp, TripAdvisor, Zomato, and other supported review sources depending on your subscription.",
+  },
+  {
+    question: "Can I manage reviews from multiple platforms in one place?",
+    answer:
+      "Yes. Critiquee centralizes reviews from multiple platforms into a single dashboard, making reputation management easier and more efficient.",
+  },
+  {
+    question: "Does Critiquee support multiple business locations?",
+    answer:
+      "Yes. You can manage reviews, ratings, and customer feedback for multiple branches or locations from one account.",
+  },
+  {
+    question: "Can I respond to reviews directly from Critiquee?",
+    answer:
+      "Yes. Depending on the connected platform, you can respond to customer reviews directly without leaving the Critiquee dashboard.",
+  },
+  {
+    question: "Does Critiquee notify me when I receive a new review?",
+    answer:
+      "Yes. You receive real-time notifications whenever new reviews are published on your connected platforms.",
+  },
+  {
+    question: "Can I monitor negative reviews?",
+    answer:
+      "Yes. Critiquee helps identify negative reviews quickly so your team can respond promptly and resolve customer concerns.",
+  },
+  {
+    question: "Does Critiquee provide review analytics?",
+    answer:
+      "Yes. The platform offers analytics including review trends, average ratings, sentiment analysis, response rates, and performance insights.",
+  },
+  {
+    question: "Can I generate review request links?",
+    answer:
+      "Yes. Critiquee allows you to create and share custom review links to encourage satisfied customers to leave feedback.",
+  },
+  {
+    question: "Does Critiquee support QR codes for review collection?",
+    answer:
+      "Yes. Businesses can generate QR codes that direct customers to leave reviews quickly using their smartphones.",
+  },
+  {
+    question: "Can I customize review request messages?",
+    answer:
+      "Yes. You can personalize SMS, email, and WhatsApp review request messages to match your brand voice.",
+  },
+  {
+    question: "Does Critiquee support automated review requests?",
+    answer:
+      "Yes. Automated review requests can be triggered after customer interactions to improve review collection rates.",
+  },
+  {
+    question: "Can I track customer satisfaction?",
+    answer:
+      "Yes. Critiquee provides detailed insights into customer feedback, helping you identify strengths and improvement areas.",
+  },
+  {
+    question: "Does Critiquee offer sentiment analysis?",
+    answer:
+      "Yes. The platform analyzes customer reviews to identify positive, neutral, and negative sentiment trends.",
+  },
+  {
+    question: "Can I assign reviews to my team?",
+    answer:
+      "Yes. Reviews can be assigned to team members or departments for faster response and issue resolution.",
+  },
+  {
+    question: "Does Critiquee provide reporting?",
+    answer:
+      "Yes. Generate detailed reports on review performance, ratings, response times, customer sentiment, and reputation trends.",
+  },
+  {
+    question: "Can I export my reports?",
+    answer:
+      "Yes. Reports can be exported for internal analysis, client presentations, or management reporting.",
+  },
+  {
+    question: "Can agencies use Critiquee?",
+    answer:
+      "Yes. Digital marketing agencies can manage reputation for multiple clients using separate business profiles.",
+  },
+  {
+    question: "Does Critiquee support role-based access?",
+    answer:
+      "Yes. You can assign different access levels and permissions to team members based on their responsibilities.",
+  },
+  {
+    question: "Can multiple users access the same account?",
+    answer:
+      "Yes. Team members can collaborate using role-based permissions and centralized review management.",
+  },
+  {
+    question: "Does Critiquee integrate with Google Business Profile?",
+    answer:
+      "Yes. Critiquee integrates with Google Business Profile to help manage reviews, ratings, and business insights efficiently.",
+  },
+  {
+    question: "Can I monitor my competitors?",
+    answer:
+      "Depending on your subscription, Critiquee provides competitor benchmarking to compare ratings and review performance.",
+  },
+  {
+    question: "Does Critiquee support social media management?",
+    answer:
+      "Yes. Selected plans include tools for publishing content and managing engagement across connected social platforms.",
+  },
+  {
+    question: "Can I schedule social media posts?",
+    answer:
+      "Yes. Critiquee allows you to schedule and publish content across supported social media channels.",
+  },
+  {
+    question: "How secure is my business data?",
+    answer:
+      "Critiquee follows industry-standard security practices to protect customer information and connected business accounts.",
+  },
+  {
+    question: "Can I customize my dashboard?",
+    answer:
+      "Yes. Dashboard widgets and reports can be customized to highlight the metrics most important to your business.",
+  },
+  {
+    question: "Does Critiquee work on mobile devices?",
+    answer:
+      "Yes. Critiquee is accessible through modern mobile browsers, allowing you to manage reviews on the go.",
+  },
+  {
+    question: "Can I connect multiple brands?",
+    answer:
+      "Yes. Businesses managing multiple brands can organize and monitor each brand separately within the platform.",
+  },
+  {
+    question: "Does Critiquee help increase Google reviews?",
+    answer:
+      "Yes. Review request campaigns, QR codes, and direct review links make it easier to encourage customers to leave Google reviews.",
+  },
+  {
+    question: "Can I filter reviews by rating?",
+    answer:
+      "Yes. Reviews can be filtered by star rating, platform, location, sentiment, and date.",
+  },
+  {
+    question: "Does Critiquee support customer feedback collection?",
+    answer:
+      "Yes. Businesses can collect both public reviews and private customer feedback to improve service quality.",
+  },
+  {
+    question: "Can I track response times?",
+    answer:
+      "Yes. Critiquee measures review response times and helps teams improve customer engagement performance.",
+  },
+  {
+    question: "How quickly are new reviews synced?",
+    answer:
+      "Review synchronization depends on the connected platform, but supported integrations are updated regularly to keep your dashboard current.",
+  },
+  {
+    question: "Is training provided for new users?",
+    answer:
+      "Yes. We provide onboarding assistance and training resources to help your team get started quickly.",
+  },
+  {
+    question: "Do you offer customer support?",
+    answer:
+      "Yes. Our support team is available to assist with onboarding, integrations, technical questions, and platform usage.",
+  },
+  {
+    question: "Can I request a product demo?",
+    answer:
+      "Absolutely. You can schedule a personalized demo to explore Critiquee's features and understand how it fits your business needs.",
+  },
+  {
+    question: "How much does Critiquee cost?",
+    answer:
+      "Pricing varies based on the number of business locations, users, and required features. Contact our team for a customized quote.",
+  },
+  {
+    question: "Why choose Critiquee over other ORM platforms?",
+    answer:
+      "Critiquee combines review management, customer feedback, analytics, multi-location support, social media tools, reporting, and automation into one easy-to-use platform, helping businesses strengthen their online reputation and build customer trust.",
   },
 ];
 
@@ -198,7 +402,12 @@ export default function CritiqueePage() {
             })}
           </div>
         </section>
-
+        <FAQ
+          faqs={faqs}
+          heading="Digital Marketing FAQs"
+          subheading="Answers to the most common questions about our services, timelines, and approach."
+          className="mx-auto w-full max-w-7xl px-5 py-16 md:px-8"
+        />
         <section className="bg-[#EE3D49] px-5 py-14 text-white md:px-8">
           <div className="mx-auto flex w-full max-w-7xl flex-col items-start justify-between gap-6 md:flex-row md:items-center">
             <div>
