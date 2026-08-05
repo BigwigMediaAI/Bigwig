@@ -220,6 +220,22 @@ iframe.goog-te-menu-frame {
    BLOG CONTENT
 ========================================= */
 
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in-up 260ms ease-out both;
+}
+
 .blog-content {
   margin: 0 auto;
   padding: 2rem 1rem;

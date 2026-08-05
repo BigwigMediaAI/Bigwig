@@ -17,6 +17,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import FAQ, { FaqItem } from "@/app/components/FAQ";
 
 const eventServices = [
   {
@@ -54,7 +55,208 @@ const eventServices = [
     icon: MonitorPlay,
   },
 ];
-
+const faqs: FaqItem[] = [
+  {
+    question: "How long does it take to see results from digital marketing?",
+    answer:
+      "SEO and organic growth are steady processes that typically gain momentum over several weeks, while paid campaigns and website improvements can start generating engagement right away.",
+  },
+  {
+    question: "Can you handle both my website and social media marketing?",
+    answer:
+      "Yes. Our team manages website development, SEO, social media marketing, reputation management, branding, content creation, and paid advertising under one strategy.",
+  },
+  {
+    question: "What kind of businesses do you work with?",
+    answer:
+      "We work with startups, small businesses, enterprises, agencies, healthcare providers, real estate companies, eCommerce brands, educational institutions, and more.",
+  },
+  {
+    question: "How do you measure campaign success?",
+    answer:
+      "We monitor website traffic, search rankings, lead quality, conversions, engagement, ROI, and customer acquisition to measure campaign performance.",
+  },
+  {
+    question: "Do you offer SEO services?",
+    answer:
+      "Yes. We provide on-page SEO, technical SEO, local SEO, keyword research, content optimization, link building, and performance monitoring.",
+  },
+  {
+    question: "Can you redesign my existing website?",
+    answer:
+      "Absolutely. We redesign websites to improve user experience, performance, branding, mobile responsiveness, and search engine visibility.",
+  },
+  {
+    question: "Do you build custom websites?",
+    answer:
+      "Yes. We create custom websites tailored to your business goals using modern technologies and responsive design principles.",
+  },
+  {
+    question: "Do you provide eCommerce website development?",
+    answer:
+      "Yes. We build scalable eCommerce websites with secure payment integration, product management, inventory support, and optimized shopping experiences.",
+  },
+  {
+    question: "What social media platforms do you manage?",
+    answer:
+      "We manage Facebook, Instagram, LinkedIn, X (Twitter), YouTube, Pinterest, and other platforms based on your audience and business goals.",
+  },
+  {
+    question: "How often do you post on social media?",
+    answer:
+      "Posting frequency depends on your marketing plan. We typically recommend 3–7 quality posts per week for consistent engagement.",
+  },
+  {
+    question: "Do you create social media content?",
+    answer:
+      "Yes. Our creative team designs graphics, videos, reels, captions, and campaign creatives aligned with your brand identity.",
+  },
+  {
+    question: "Can you run paid advertising campaigns?",
+    answer:
+      "Yes. We manage Google Ads, Meta Ads, LinkedIn Ads, YouTube Ads, and other paid campaigns focused on maximizing ROI.",
+  },
+  {
+    question: "Do you provide Google Ads management?",
+    answer:
+      "Yes. We handle campaign setup, keyword research, bidding strategy, optimization, conversion tracking, and performance reporting.",
+  },
+  {
+    question: "Can you help generate more leads?",
+    answer:
+      "Yes. We combine SEO, paid advertising, landing pages, CRO, and content marketing to generate qualified leads for your business.",
+  },
+  {
+    question: "Do you offer branding services?",
+    answer:
+      "Yes. We create brand identities including logos, color systems, typography, messaging, and visual guidelines.",
+  },
+  {
+    question: "Can you create marketing videos?",
+    answer:
+      "Yes. We produce promotional videos, motion graphics, product videos, testimonials, and social media reels.",
+  },
+  {
+    question: "Do you offer content writing services?",
+    answer:
+      "Yes. We write SEO-friendly blogs, website copy, landing pages, product descriptions, and marketing content.",
+  },
+  {
+    question: "How do you improve website conversions?",
+    answer:
+      "We optimize page speed, improve UX, strengthen CTAs, simplify navigation, and continuously test layouts for better conversion rates.",
+  },
+  {
+    question: "Do you provide monthly reports?",
+    answer:
+      "Yes. Every month you receive transparent reports covering traffic, rankings, leads, campaign performance, and recommendations.",
+  },
+  {
+    question: "Will I have a dedicated account manager?",
+    answer:
+      "Yes. Every client is assigned a dedicated point of contact for communication, strategy discussions, and project updates.",
+  },
+  {
+    question: "Can you improve my local search rankings?",
+    answer:
+      "Yes. We optimize Google Business Profile, local citations, reviews, and location-specific SEO strategies.",
+  },
+  {
+    question: "Do you manage online reputation?",
+    answer:
+      "Yes. We help businesses monitor reviews, improve ratings, respond professionally, and strengthen brand reputation online.",
+  },
+  {
+    question: "Can you recover a website affected by Google updates?",
+    answer:
+      "Yes. We perform comprehensive SEO audits, identify issues, and implement recovery strategies based on Google's best practices.",
+  },
+  {
+    question: "Do you optimize website speed?",
+    answer:
+      "Yes. We improve loading speed through image optimization, caching, code optimization, and performance best practices.",
+  },
+  {
+    question: "Is my website mobile-friendly?",
+    answer:
+      "Every website we build is fully responsive and optimized for mobile, tablet, and desktop devices.",
+  },
+  {
+    question: "Can you migrate my website without downtime?",
+    answer:
+      "Yes. We carefully plan website migrations to minimize downtime and preserve SEO performance.",
+  },
+  {
+    question: "Do you integrate CRM systems?",
+    answer:
+      "Yes. We integrate CRM platforms, lead forms, marketing automation tools, and third-party business software.",
+  },
+  {
+    question: "Can you track phone calls and form submissions?",
+    answer:
+      "Yes. We implement conversion tracking for calls, forms, purchases, and other business goals.",
+  },
+  {
+    question: "Do you offer email marketing?",
+    answer:
+      "Yes. We design email campaigns, newsletters, automation workflows, and performance tracking.",
+  },
+  {
+    question: "Can you help increase website traffic?",
+    answer:
+      "Yes. We combine SEO, content marketing, social media, and paid campaigns to drive qualified traffic.",
+  },
+  {
+    question: "Do you create landing pages?",
+    answer:
+      "Yes. We build high-converting landing pages optimized for advertising campaigns and lead generation.",
+  },
+  {
+    question: "Can you manage multiple business locations?",
+    answer:
+      "Yes. We develop location-specific marketing strategies and local SEO campaigns for multi-location businesses.",
+  },
+  {
+    question: "Do you work with international clients?",
+    answer:
+      "Yes. We provide digital marketing services for businesses across different countries and industries.",
+  },
+  {
+    question: "How much do your services cost?",
+    answer:
+      "Pricing depends on your business goals, project scope, and selected services. We provide customized packages tailored to your needs.",
+  },
+  {
+    question: "Do you require long-term contracts?",
+    answer:
+      "We offer flexible engagement models. Depending on the service, clients can choose monthly, quarterly, or long-term partnerships.",
+  },
+  {
+    question: "How do we get started?",
+    answer:
+      "We begin with a consultation to understand your goals, analyze your current digital presence, and recommend the most effective strategy.",
+  },
+  {
+    question: "Can you help with website maintenance?",
+    answer:
+      "Yes. We provide ongoing website maintenance, security updates, backups, bug fixes, and feature enhancements.",
+  },
+  {
+    question: "Do you offer technical support after project completion?",
+    answer:
+      "Yes. We provide post-launch support to ensure your website and marketing campaigns continue to perform effectively.",
+  },
+  {
+    question: "Can you improve my Google Business Profile?",
+    answer:
+      "Yes. We optimize your profile with accurate information, images, reviews, posts, and local SEO strategies to improve visibility.",
+  },
+  {
+    question: "Why should I choose your digital marketing agency?",
+    answer:
+      "We combine strategy, creativity, technology, and data-driven marketing to deliver measurable business growth while providing transparent communication and dedicated support.",
+  },
+];
 const highlights = [
   { value: "15+", label: "Years of Experience", icon: CalendarDays },
   { value: "500+", label: "Events Delivered", icon: Star },
@@ -201,6 +403,12 @@ export default function EventsPage() {
             })}
           </div>
         </section>
+        <FAQ
+          faqs={faqs}
+          heading="Digital Marketing FAQs"
+          subheading="Answers to the most common questions about our services, timelines, and approach."
+          className="mx-auto w-full max-w-7xl px-5 py-16 md:px-8"
+        />
 
         <section className="bg-[#EE3D49] px-5 py-14 text-white md:px-8">
           <div className="mx-auto flex w-full max-w-7xl flex-col items-start justify-between gap-6 md:flex-row md:items-center">
