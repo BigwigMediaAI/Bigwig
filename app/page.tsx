@@ -56,7 +56,7 @@ export default function Home() {
         ref={rippleRef}
         className="hidden lg:flex w-full h-screen bg-cover bg-center full-landing-image"
         style={{
-          backgroundImage: "url('/homepage.gif')",
+          backgroundImage: "url('/homepage2.png')",
         }}
       >
         <div className="absolute bottom-28 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-[17px] font-thin tracking-widest z-10 text-center flex flex-wrap justify-center items-center gap-3">
@@ -122,6 +122,12 @@ export default function Home() {
                       >
                         Digital Marketing
                       </Link>
+                      <Link
+                        href="/services/bigwig-technology"
+                        className="block"
+                      >
+                        Bigwig Technology
+                      </Link>
                       <Link href="/services/events" className="block">
                         Events
                       </Link>
@@ -140,12 +146,6 @@ export default function Home() {
 
                   {showProducts && (
                     <div className="ml-4 mt-2 space-y-2 text-[16px]">
-                      <Link
-                        href="/products/bigwig-technology"
-                        className="block"
-                      >
-                        Bigwig Technology
-                      </Link>
                       <Link href="/products/unifyi" className="block">
                         Unifyi
                       </Link>
@@ -179,10 +179,10 @@ export default function Home() {
           <Image
             src="/home-icon-1.gif"
             alt="bulb"
-            width={400}
-            height={200}
+            width={280}
+            height={110}
             loading="eager"
-            className="absolute top-0 right-0 w-1/3 h-48 z-0 -mt-6"
+            className="absolute top-4 right-4 w-28 h-24 md:w-28 md:h-28 object-contain z-0"
           />
 
           {/* Cube GIF - bottom left - fixed in place */}
@@ -254,7 +254,7 @@ export default function Home() {
         {/* Center Logo */}
         <div className="flex-1 flex items-center justify-center px-6 pt-16">
           <Image
-            src="/homepage-mobile.gif"
+            src="/homepage-mobile2 (2).png"
             alt="Logo"
             width={200}
             height={100}

@@ -16,6 +16,10 @@ const navLinks = [
         href: "/services/digital-marketing",
       },
       {
+        name: "Bigwig Technology",
+        href: "/services/bigwig-technology",
+      },
+      {
         name: "Events",
         href: "/services/events",
       },
@@ -24,10 +28,6 @@ const navLinks = [
   {
     name: "PRODUCTS",
     submenu: [
-      {
-        name: "Bigwig Technology",
-        href: "/products/bigwig-technology",
-      },
       {
         name: "Unifyi",
         href: "/products/unifyi",
