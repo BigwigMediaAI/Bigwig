@@ -126,7 +126,7 @@ export default function Home() {
                         href="/services/bigwig-technology"
                         className="block"
                       >
-                        Bigwig Technology
+                        Software Development
                       </Link>
                       <Link href="/services/events" className="block">
                         Events
@@ -167,9 +167,6 @@ export default function Home() {
                 </Link>
                 <Link href="/things-we-do" className="block">
                   Things We Do
-                </Link>
-                <Link href="/method" className="block">
-                  Method to Madness
                 </Link>
               </div>
             </div>
@@ -324,7 +321,7 @@ export default function Home() {
                 {showProducts && (
                   <div className="ml-4 mt-2 space-y-2 text-[16px]">
                     <Link href="/products/bigwig-technology" className="block">
-                      Bigwig Technology
+                      Software Development
                     </Link>
                     <Link href="/products/unifyi" className="block">
                       Unifyi
@@ -346,9 +343,6 @@ export default function Home() {
               </li>
               <li>
                 <Link href="/things-we-do">Things We Do</Link>
-              </li>
-              <li>
-                <Link href="/method-to-madness">Method to Madness</Link>
               </li>
             </ul>
           </div>

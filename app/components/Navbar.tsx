@@ -16,7 +16,7 @@ const navLinks = [
         href: "/services/digital-marketing",
       },
       {
-        name: "Bigwig Technology",
+        name: "Software Development",
         href: "/services/bigwig-technology",
       },
       {
@@ -42,7 +42,6 @@ const navLinks = [
   { name: "STRATEGY", href: "/strategy" },
   { name: "Y BIGWIG", href: "/Y-Bigwig" },
   { name: "THINGS WE DO", href: "/things-we-do" },
-  { name: "METHOD TO MADNESS", href: "/method" },
 ];
 
 const Navbar = () => {

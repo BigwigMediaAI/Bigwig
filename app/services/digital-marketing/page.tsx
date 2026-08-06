@@ -2,54 +2,124 @@
 
 import {
   ArrowUpRight,
+  BarChart3,
+  Bot,
   Code2,
+  FileText,
   Film,
+  LineChart,
+  Mail,
   Megaphone,
+  MessageCircle,
   Palette,
   Search,
   ShieldCheck,
+  Sparkles,
+  Target,
+  TrendingUp,
 } from "lucide-react";
 import Link from "next/link";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import FAQ, { FaqItem } from "../../components/FAQ";
+import { FaFacebook } from "react-icons/fa";
 
 const services = [
   {
     title: "Website Development",
     description:
-      "Fast, responsive websites built to represent your brand and convert visitors.",
+      "Modern, fast, responsive websites and landing pages built to generate leads and drive business growth.",
     icon: Code2,
   },
   {
-    title: "SEO",
+    title: "Search Engine Optimization (SEO)",
     description:
-      "Search visibility, technical improvements, and content direction for organic growth.",
+      "Technical SEO, on-page optimization, local SEO, content strategy, and link building to improve search rankings.",
     icon: Search,
   },
   {
-    title: "SMM",
+    title: "Social Media Marketing",
     description:
-      "Social media planning, creatives, campaigns, and consistent brand communication.",
+      "Complete social media management including strategy, content creation, posting, and audience engagement.",
     icon: Megaphone,
   },
   {
-    title: "ORM",
+    title: "Performance Marketing",
     description:
-      "Online reputation management to monitor, improve, and protect brand trust.",
-    icon: ShieldCheck,
+      "ROI-focused paid campaigns across Google, Meta, LinkedIn, YouTube, and other advertising platforms.",
+    icon: BarChart3,
+  },
+  {
+    title: "Google Ads Management",
+    description:
+      "Search, Display, Shopping, Performance Max, and YouTube Ads optimized for maximum conversions.",
+    icon: Target,
+  },
+  {
+    title: "Meta Ads (Facebook & Instagram)",
+    description:
+      "Lead generation, eCommerce sales, remarketing, and brand awareness campaigns on Meta platforms.",
+    icon: FaFacebook,
+  },
+  {
+    title: "Content Marketing",
+    description:
+      "SEO-friendly blogs, website copy, marketing content, and storytelling that builds authority and trust.",
+    icon: FileText,
   },
   {
     title: "Graphic Designing",
     description:
-      "Brand creatives, social posts, campaign assets, and marketing collaterals.",
+      "Creative social media posts, branding materials, advertisements, banners, brochures, and marketing assets.",
     icon: Palette,
   },
   {
-    title: "Video Editing",
+    title: "Video Production & Editing",
     description:
-      "Sharp, platform-ready videos for ads, reels, brand stories, and campaigns.",
+      "Professional reels, YouTube videos, ad creatives, promotional videos, and motion graphics.",
     icon: Film,
+  },
+  {
+    title: "Online Reputation Management",
+    description:
+      "Monitor, manage, and improve your online reviews and brand reputation across digital platforms.",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Email Marketing",
+    description:
+      "Automated email campaigns, newsletters, lead nurturing, and customer retention strategies.",
+    icon: Mail,
+  },
+  {
+    title: "WhatsApp Marketing",
+    description:
+      "Bulk messaging, customer engagement, automation, and WhatsApp Business API campaign management.",
+    icon: MessageCircle,
+  },
+  {
+    title: "Marketing Automation",
+    description:
+      "Automate lead nurturing, CRM workflows, customer journeys, and sales processes.",
+    icon: Bot,
+  },
+  {
+    title: "Brand Strategy & Identity",
+    description:
+      "Brand positioning, messaging, visual identity, logo design, and complete branding solutions.",
+    icon: Sparkles,
+  },
+  {
+    title: "Conversion Rate Optimization (CRO)",
+    description:
+      "Improve website performance and increase conversions through testing, analytics, and UX improvements.",
+    icon: TrendingUp,
+  },
+  {
+    title: "Analytics & Reporting",
+    description:
+      "Google Analytics, Looker Studio dashboards, campaign tracking, and actionable marketing insights.",
+    icon: LineChart,
   },
 ];
 
@@ -273,9 +343,10 @@ export default function DigitalMarketingPage() {
                 Digital Marketing That Builds Your Online Base
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-8 text-white/85">
-                From website development to SEO, social media, ORM, graphics,
-                and video editing, we help brands create a stronger digital
-                presence from one place.
+                From website development and SEO to social media, brand
+                marketing, paid ads, email campaigns, graphics, and video
+                editing, we help brands create a stronger digital presence from
+                one place.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a

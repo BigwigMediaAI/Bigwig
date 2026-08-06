@@ -2,12 +2,23 @@
 
 import {
   ArrowUpRight,
+  BadgeCheck,
+  Bot,
+  Boxes,
+  BrainCircuit,
   BriefcaseBusiness,
+  Building2,
+  CloudCog,
   Code2,
+  Database,
   LayoutDashboard,
+  PenTool,
+  PlugZap,
   ShieldCheck,
+  Smartphone,
   Sparkles,
   UsersRound,
+  Wrench,
 } from "lucide-react";
 import Link from "next/link";
 import Navbar from "../../components/Navbar";
@@ -16,40 +27,94 @@ import FAQ, { FaqItem } from "@/app/components/FAQ";
 
 const capabilities = [
   {
-    title: "Product Strategy",
+    title: "Custom Software Development",
     description:
-      "Turn an initial idea into a clear, practical software plan that fits your users and business goals.",
-    icon: Sparkles,
-  },
-  {
-    title: "Custom Software",
-    description:
-      "Build purpose-made systems that streamline work, solve specific problems, and support the way your team operates.",
+      "Build scalable software tailored to your business processes, workflows, and long-term growth.",
     icon: Code2,
   },
   {
-    title: "Web Applications",
+    title: "Web Application Development",
     description:
-      "Create secure, responsive web platforms that make complex workflows simple for customers and internal teams.",
+      "Develop fast, secure, and responsive web applications using modern technologies and frameworks.",
     icon: LayoutDashboard,
   },
   {
-    title: "User-focused Experiences",
+    title: "Mobile App Development",
     description:
-      "Design intuitive digital experiences that help people complete important tasks with confidence.",
-    icon: UsersRound,
+      "Create high-performance Android, iOS, and cross-platform mobile applications with seamless user experiences.",
+    icon: Smartphone,
   },
   {
-    title: "Business Systems",
+    title: "UI/UX Design",
     description:
-      "Connect data, teams, and processes through reliable software built around your day-to-day operations.",
-    icon: BriefcaseBusiness,
+      "Design intuitive user interfaces and engaging experiences that improve usability and customer satisfaction.",
+    icon: PenTool,
   },
   {
-    title: "Reliable Growth",
+    title: "Enterprise Software Solutions",
     description:
-      "Keep your product ready to evolve with thoughtful foundations, security-minded development, and ongoing support.",
+      "Develop ERP, CRM, HRMS, inventory, and business management systems customized for your organization.",
+    icon: Building2,
+  },
+  {
+    title: "AI & Machine Learning",
+    description:
+      "Integrate AI-powered chatbots, predictive analytics, recommendation engines, NLP, and computer vision solutions.",
+    icon: BrainCircuit,
+  },
+  {
+    title: "Automation Solutions",
+    description:
+      "Automate repetitive business processes, workflows, approvals, and customer interactions with intelligent automation.",
+    icon: Bot,
+  },
+  {
+    title: "API Development & Integration",
+    description:
+      "Develop secure REST APIs and integrate third-party services like payment gateways, CRMs, ERPs, and cloud platforms.",
+    icon: PlugZap,
+  },
+  {
+    title: "Cloud & DevOps",
+    description:
+      "Deploy scalable cloud infrastructure with CI/CD pipelines, Docker, Kubernetes, monitoring, and automated deployments.",
+    icon: CloudCog,
+  },
+  {
+    title: "Cybersecurity Solutions",
+    description:
+      "Implement secure authentication, data protection, vulnerability assessments, and application security best practices.",
     icon: ShieldCheck,
+  },
+  {
+    title: "Quality Assurance & Testing",
+    description:
+      "Ensure software quality through manual testing, automated testing, performance testing, and security validation.",
+    icon: BadgeCheck,
+  },
+  {
+    title: "Maintenance & Support",
+    description:
+      "Provide continuous software maintenance, feature enhancements, bug fixes, performance optimization, and technical support.",
+    icon: Wrench,
+  },
+  {
+    title: "SaaS Product Development",
+    description:
+      "Build secure, multi-tenant SaaS platforms with subscription management, analytics, and scalable architecture.",
+    icon: Boxes,
+  },
+  {
+    title: "Database Design & Optimization",
+    description:
+      "Design scalable database architectures, optimize queries, and ensure reliable data management.",
+    icon: Database,
+  },
+  {
+    title: "Product Strategy & Consulting",
+    description:
+      "Validate ideas, define technical architecture, create product roadmaps, and guide digital transformation initiatives.",
+    icon: Sparkles,
   },
 ];
 
@@ -291,9 +356,9 @@ export default function BigwigTechnologyPage() {
                 Software that turns ambitious ideas into useful products
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-8 text-white/85">
-                We create tailored software, web applications, and digital
-                platforms that help businesses work smarter, serve people
-                better, and grow with confidence.
+                We create tailored software, web applications, AI/ML solutions,
+                and intelligent automation platforms that help businesses work
+                smarter, serve people better, and grow with confidence.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a
