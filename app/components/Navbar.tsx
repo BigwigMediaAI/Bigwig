@@ -64,7 +64,7 @@ const Navbar = () => {
       <div className="w-full max-w-7xl mx-auto flex items-center justify-between px-4 py-4">
         <Link
           href="/"
-          className="flex items-center space-x-1 text-3xl font-bold"
+          className="flex items-center space-x-1 text-3xl font-semibold tracking-[0.16em]"
         >
           <Image
             src="/bigwig-logo.png"
@@ -76,7 +76,7 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Nav */}
-        <ul className="hidden md:flex space-x-8 text-sm font-medium">
+        <ul className="hidden md:flex items-center space-x-7 text-[0.8rem] font-semibold uppercase tracking-[0.22em]">
           {navLinks.map((link, i) => {
             const isActive = activePath === link.href;
 
@@ -86,7 +86,7 @@ const Navbar = () => {
                 className={`${
                   isActive
                     ? "text-rose-500 border-b-2 border-rose-500 pb-1"
-                    : "text-blue-900 transition"
+                    : "text-blue-900 transition hover:text-rose-500"
                 } relative group`}
               >
                 {link.submenu ? (
@@ -99,7 +99,7 @@ const Navbar = () => {
                         <li key={j}>
                           <Link
                             href={sub.href}
-                            className="block px-4 py-2 text-sm text-blue-900 hover:bg-blue-50"
+                            className="block px-4 py-2 text-sm text-blue-900 hover:bg-blue-50 hover:text-rose-500"
                           >
                             {sub.name}
                           </Link>
@@ -118,7 +118,7 @@ const Navbar = () => {
         {/* Contact Button */}
         <div className="hidden md:block">
           <Link href="/contact">
-            <button className="border border-rose-500 text-blue-900 font-medium px-4 py-2 rounded-md hover:bg-rose-50 transition">
+            <button className="border border-rose-500 text-blue-900 font-semibold uppercase tracking-[0.2em] px-4 py-2 rounded-md hover:bg-rose-50 transition">
               CONTACT
             </button>
           </Link>
@@ -137,7 +137,7 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {menuOpen && (
         <div className="md:hidden absolute top-full left-0 w-full bg-white z-40 px-6 py-6 space-y-6">
-          <ul className="flex flex-col text-lg font-medium space-y-4">
+          <ul className="flex flex-col text-base font-semibold uppercase tracking-[0.18em] space-y-4">
             {navLinks.map((link, i) => {
               const isExpanded = expandedMenus.includes(link.name);
               const isActive = activePath === link.href;
@@ -193,7 +193,7 @@ const Navbar = () => {
           </ul>
 
           <Link href="/contact" onClick={() => setMenuOpen(false)}>
-            <button className="border border-rose-500 text-blue-900 font-medium px-6 py-2 rounded-md hover:bg-rose-50 transition">
+            <button className="border border-rose-500 text-blue-900 font-semibold uppercase tracking-[0.2em] px-6 py-2 rounded-md hover:bg-rose-50 transition">
               CONTACT
             </button>
           </Link>
